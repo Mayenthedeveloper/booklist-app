@@ -20,7 +20,15 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Form />
+        <Form
+          title={title}
+          setTitle={setTitle}
+          author={author}
+          setAuthor={setAuthor}
+          isbn={isbn}
+          setIsbn={setIsbn}
+          currentBookId={currentBookId}
+        />
       </div>
     </div>
   );
