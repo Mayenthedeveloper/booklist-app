@@ -1,9 +1,24 @@
 import React, { Component } from "react";
+import TableField from "./TableField";
 
-function Table() {
+function Table({ books }) {
   return (
     <div className="table">
-      <div className="tableHead"></div>
+      <div className="tableHeading">
+        <TableField fieldName="Title" />
+        <TableField fieldName="Author" />
+        <TableField fieldName="ISBN" />
+        <TableField fieldName="Settings" />
+      </div>
+      {books.map((book) => {
+        <div key={book.bookId} className="tableRow">
+          <TableField fieldName={book.bookTitle} />
+          <TableField fieldName={book.bookAuthor} />
+          <TableField fieldName={book.bookIsbn} />
+          <TableField />
+          <TableField />
+        </div>;
+      })}
     </div>
   );
 }
