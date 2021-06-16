@@ -14,11 +14,30 @@ function Form(props) {
   return (
     <form action="">
       <label htmlFor="title">Title</label>
-      <input type="text" />
+      <input
+        autoFocus
+        required
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
       <label htmlFor="author">Author</label>
-      <input type="text" />
+      <input
+        type="text"
+        value={author}
+        required
+        onChange={(e) => setAuthor(e.target.value)}
+      />
       <label htmlFor="isbn">ISBN</label>
-      <input type="text" />
+      <input
+        type="text"
+        value={isbn}
+        required
+        onChange={(e) => setIsbn(e.target.value)}
+      />
+      <button tabIndex="0" type="submit">
+        {currentBookId !== null ? "Update" : "Add"}
+      </button>
     </form>
   );
 }

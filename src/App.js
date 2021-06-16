@@ -1,6 +1,7 @@
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
+import Table from "./components/Table";
 import Form from "./components/Form";
 
 function App() {
