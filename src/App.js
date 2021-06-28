@@ -11,9 +11,9 @@ function App() {
   const [currentBookId, setCurrentBookId] = useState(null);
   const [books, setBooks] = useState([
     {
-      bookTitle: title,
-      bookAuthor: author,
-      bookIsbn: isbn,
+      bookTitle: "book1",
+      bookAuthor: "John Doe ",
+      bookIsbn: "999",
       bookId: uuidv4(),
     },
   ]);

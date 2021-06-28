@@ -6,8 +6,8 @@ function TableField({ fieldName, settingsField }) {
       {fieldName}
       {settingsField && (
         <>
-          <i className="fa-solid fa-pen-to-square"></i>
-          <i className="fa-solid fa-trash"></i>
+          <i className="fas fa-edit"></i>
+          <i className="fas fa-trash-alt"></i>
         </>
       )}
 
