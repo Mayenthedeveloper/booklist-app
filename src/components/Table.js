@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TableField from "./TableField";
 
 function Table({ books }) {
+  console.log(books);
   return (
     <div className="table">
       <div className="tableHeading">
@@ -10,14 +11,14 @@ function Table({ books }) {
         <TableField fieldName="ISBN" />
         <TableField fieldName="Settings" />
       </div>
-      {books.map((book) => {
+      {books.map((book) => (
         <div key={book.bookId} className="tableRow">
           <TableField fieldName={book.bookTitle} />
           <TableField fieldName={book.bookAuthor} />
           <TableField fieldName={book.bookIsbn} />
           <TableField settingsField />
-        </div>;
-      })}
+        </div>
+      ))}
     </div>
   );
 }
