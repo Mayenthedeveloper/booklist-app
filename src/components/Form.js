@@ -9,10 +9,11 @@ function Form(props) {
     isbn,
     setIsbn,
     currentBookId,
+    handleSubmit,
   } = props;
 
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
       <label htmlFor="title">Title</label>
       <input
         autoFocus

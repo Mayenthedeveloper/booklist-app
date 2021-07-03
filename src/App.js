@@ -18,6 +18,38 @@ function App() {
     },
   ]);
 
+  const isInputValid = () => {
+    return title.trim() === "" || author.trim() === "" || isbn.trim() == "";
+  };
+
+  const clearInputs = () => {
+    setTitle("");
+
+    setIsbn("");
+    setAuthor("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    clearInputs();
+    if (isInputValid()) return;
+    addBooks();
+  };
+
+  const removeBook = (id) => {};
+
+  const addBooks = () => {
+    setBooks([
+      ...books,
+      {
+        bookTitle: title,
+        bookAuthor: author,
+        bookIsbn: isbn,
+        bookId: uuidv4(),
+      },
+    ]);
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -29,6 +61,7 @@ function App() {
           isbn={isbn}
           setIsbn={setIsbn}
           currentBookId={currentBookId}
+          handleSubmit={handleSubmit}
         />
         <Table books={books} />
       </div>
