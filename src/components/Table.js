@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TableField from "./TableField";
 
-function Table({ books, removeBook }) {
+function Table({ books, removeBook, editBook }) {
   console.log(books);
   return (
     <div className="table">
@@ -19,6 +19,7 @@ function Table({ books, removeBook }) {
           <TableField
             settingsField
             removeBook={() => removeBook(book.bookId)}
+            editBook={() => editBook(book)}
           />
         </div>
       ))}

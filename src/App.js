@@ -32,11 +32,15 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     clearInputs();
+    setCurrentBookId(null);
     if (isInputValid()) return;
+    !currentBookId ? addBooks() : updateBook();
     addBooks();
   };
 
-  const removeBook = (id) => {};
+  const removeBook = (id) => {
+    setBooks(books.filter((book) => book.bookId !== id));
+  };
 
   const addBooks = () => {
     setBooks([
@@ -48,6 +52,29 @@ function App() {
         bookId: uuidv4(),
       },
     ]);
+  };
+
+  const editBook = (book) => {
+    setTitle(book.bookTitle);
+    setAuthor(book.bookAuthor);
+    setIsbn(book.bookIsbn);
+
+    setCurrentBookId(book.bookId);
+  };
+
+  const updateBook = () => {
+    setBooks(
+      books.map((book) =>
+        book.bookId === currentBookId
+          ? { ...books, bookTitle: title, bookAuthor: author, bookIsbn: isbn }
+          : book
+      )
+    );
+  };
+
+  const cancelEdit = () => {
+    clearInputs();
+    setCurrentBookId(null);
   };
 
   return (
@@ -62,8 +89,9 @@ function App() {
           setIsbn={setIsbn}
           currentBookId={currentBookId}
           handleSubmit={handleSubmit}
+          cancelEdit={cancelEdit}
         />
-        <Table books={books} />
+        <Table books={books} removeBook={removeBook} editBook={editBook} />
       </div>
     </div>
   );
